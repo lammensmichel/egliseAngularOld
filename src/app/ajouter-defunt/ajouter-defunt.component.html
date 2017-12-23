@@ -1,0 +1,121 @@
+<h1>Ajouter un défunt : </h1>
+<form class="border" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" >
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="prenom">Prénom</label>
+        <input type="texte" class="form-control" id="prenom" placeholder="prénom" formControlName="prenom">
+      </div>
+      <div class="col-lg-6">
+        <label for="inputEmail4">Nom</label>
+        <input type="texte" class="form-control" id="nom" placeholder="nom" formControlName="nom">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-12">
+        <label for="epouxEpouse">époux / épouse</label>
+        <input type="texte" class="form-control" id="epouxEpouse" placeholder="époux / épouse" formControlName="epouxEpouse">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="dateDuDeces">Date Du Décès</label>
+        <input type="date" class="form-control" id="dateDuDeces" placeholder="date Du Décès" formControlName="dateDuDeces">
+      </div>
+      <div class="col-lg-6">
+        <label for="lieuDuDeces">Lieu Du Décès</label>
+        <input type="texte" class="form-control" id="lieuDuDeces" placeholder="lieu Du Décès" formControlName="lieuDuDeces">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="dateDeNaissance">Date De Naissance</label>
+        <input type="date" class="form-control" id="dateDeNaissance" placeholder="Date De Naissance" formControlName="dateDeNaissance">
+      </div>
+      <div class="col-lg-6">
+        <label for="LieuDeNaissance">Lieu De Naissance</label>
+        <input type="texte" class="form-control" id="LieuDeNaissance" placeholder="Lieu De Naissance" formControlName="LieuDeNaissance">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="dateDesFunerailles">Date Des Funérailles</label>
+        <input type="date" class="form-control" id="dateDesFunerailles" placeholder="Date Des Funérailles" formControlName="dateDesFunerailles">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="lieuDeDepart">Lieu De Départ</label>
+        <input type="texte" class="form-control" id="lieuDeDepart" placeholder="lieu De Dépar" formControlName="lieuDeDepart">
+      </div>
+      <div class="col-lg-6">
+        <label for="heureDeDepart">heure De Départ</label>
+        <input type="time" class="form-control" id="heureDeDepart" placeholder="Deure De Départ" formControlName="heureDeDepart">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="egliseDe">Eglise</label>
+        <input type="texte" class="form-control" id="egliseDe" placeholder="Eglise" formControlName="egliseDe">
+      </div>
+      <div class="col-lg-6">
+        <label for="heureDeLaMesse">Heure de la messe</label>
+        <input type="time" class="form-control" id="heureDeLaMesse" placeholder="Heure de la messe" formControlName="heureDeLaMesse">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="crematorium">Crématorium</label>
+        <input type="texte" class="form-control" id="crematorium" placeholder="Crématorium" formControlName="crematorium">
+      </div>
+      <div class="col-lg-6">
+        <label for="heureCrematorium">Heure du Crématorium</label>
+        <input type="time" class="form-control" id="heureCrematorium" placeholder="Heure du Crématorium" formControlName="heureCrematorium">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="cimetiere">Cimetière</label>
+        <input type="texte" class="form-control" id="cimetiere" placeholder="Cimetière" formControlName="cimetiere">
+      </div>
+      <div class="col-lg-6">
+        <label for="heureCimetiere">Heure du Cimetière</label>
+        <input type="time" class="form-control" id="heureCimetiere" placeholder="Heure du Cimetière" formControlName="heureCimetiere">
+      </div>
+    </div>
+  </div>
+  <div class="form-group col-md-12">
+    <div class="row">
+        <div class="col-lg-4">
+        </div>
+      <div class="col-lg-4">
+        <button type="submit" class="btn btn-primary">enregistrer</button>
+      </div>
+    </div>
+  </div>
+</form>
