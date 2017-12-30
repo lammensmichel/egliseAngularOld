@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Defunt } from '../models/Defunt';
 import { DefuntSearch } from '../models/DefuntSearch';
+import { HttpService } from '../service/http.service';
 
 @Component({
   selector: 'app-list-defunt',
@@ -12,51 +13,25 @@ export class ListDefuntComponent implements OnInit {
    defunts: Array<Defunt> = [];
    searchText: DefuntSearch;
 
-  constructor() {
+  constructor(private httpService: HttpService) {
      this.searchText = new DefuntSearch();
-     const defunt = new Defunt(1,
-      'nom',
-      'prenom',
-      'epoux',
-      '2017-12-22',
-      'lieu du deces',
-      'datedenaissance',
-      'lieudenaissance',
-      'datesDesFunerailles',
-      'lieudedepart',
-      'heurededepart',
-      'eglise',
-      'heuremess',
-      'cremation',
-      'heurecremation',
-      'cimetiere',
-      'heurecimetirer');
-      this.defunts.push(defunt);
-      this.defunts.push({ ...defunt, nom: 'nom2', id: 2 } );
-      this.defunts.push({ ...defunt, nom: 'nom3', id: 3 } );
-      this.defunts.push({ ...defunt, nom: 'nom4', id: 4 } );
-      this.defunts.push({ ...defunt, nom: 'nom5', id: 5 } );
-      this.defunts.push({ ...defunt, nom: 'nom6', id: 6 } );
-      this.defunts.push({ ...defunt, nom: 'nom7', id: 7 } );
-      this.defunts.push({ ...defunt, nom: 'nom8', id: 8 } );
-      this.defunts.push({ ...defunt, nom: 'nom9', id: 9 } );
-      this.defunts.push({ ...defunt, nom: 'nom10', id: 10 } );
-      this.defunts.push({ ...defunt, nom: 'nom11', id: 11 } );
-      this.defunts.push({ ...defunt, nom: 'nom12', id: 12 } );
-      this.defunts.push({ ...defunt, nom: 'nom13', id: 13 } );
-      this.defunts.push({ ...defunt, nom: 'nom14', id: 14 } );
-      this.defunts.push({ ...defunt, nom: 'nom15', id: 15 } );
-
    }
 
   ngOnInit() {
+    this.httpService.getHttp('http://localhost:3000/Defunt').subscribe((results) => {
+      this.defunts = results;
+    });
   }
 
-  deleteDefunt (id: number) {
-    console.log('delete', id);
+  deleteDefunt (id: string) {
+    const defunt: Defunt = new Defunt(id) ;
+    this.httpService.deleteHttp('http://localhost:3000/Defunt', defunt).subscribe((results) => {
+      this.defunts = this.defunts.filter((e) => e._id !== id);
+      console.log(results);
+    });
   }
 
-  editDefunt (id: number) {
+  editDefunt (id: string) {
     console.log('edit', id);
   }
 

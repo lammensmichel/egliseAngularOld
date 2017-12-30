@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, FormControl } from '@angular/forms';
 import { Defunt } from '../models/Defunt';
+import { HttpService } from '../service/http.service';
 
 @Component({
   selector: 'app-ajouter-defunt',
@@ -11,7 +12,7 @@ export class AjouterDefuntComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, private httpService: HttpService) {
     this.myForm = formBuilder.group(
       {
         'prenom': new FormControl(),
@@ -37,8 +38,11 @@ export class AjouterDefuntComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(value: Defunt) {
-    console.log(value);
+  onSubmit(defunt: Defunt) {
+    this.httpService.putHttp('http://localhost:3000/Defunt', defunt).subscribe(
+      (e) => {console.log(e); }
+    );
+
     return false;
   }
 

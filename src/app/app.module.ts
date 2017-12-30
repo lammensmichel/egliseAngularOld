@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HorairesComponent } from './horaires/horaires.component';
 import { AjouterDefuntComponent } from './ajouter-defunt/ajouter-defunt.component';
 import { ListDefuntComponent } from './list-defunt/list-defunt.component';
+import { HttpService } from './service/http.service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'accueil', pathMatch: 'full'},
@@ -43,7 +44,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
