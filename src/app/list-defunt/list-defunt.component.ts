@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Defunt } from '../models/Defunt';
 import { DefuntSearch } from '../models/DefuntSearch';
-import { HttpService } from '../service/http.service';
+import { DefuntService } from '../service/defunt.service';
+
 
 @Component({
   selector: 'app-list-defunt',
@@ -12,27 +13,25 @@ export class ListDefuntComponent implements OnInit {
 
    defunts: Array<Defunt> = [];
    searchText: DefuntSearch;
+   p = 1;
 
-  constructor(private httpService: HttpService) {
+  constructor(private defuntService: DefuntService) {
      this.searchText = new DefuntSearch();
    }
 
+
   ngOnInit() {
-    this.httpService.getHttp('http://localhost:3000/Defunt').subscribe((results) => {
+    this.defuntService.getHttp('http://localhost:3000/Defunt').subscribe((results) => {
       this.defunts = results;
     });
   }
 
   deleteDefunt (id: string) {
     const defunt: Defunt = new Defunt(id) ;
-    this.httpService.deleteHttp('http://localhost:3000/Defunt', defunt).subscribe((results) => {
+    this.defuntService.deleteHttp('http://localhost:3000/Defunt', defunt).subscribe((results) => {
       this.defunts = this.defunts.filter((e) => e._id !== id);
       console.log(results);
     });
-  }
-
-  editDefunt (id: string) {
-    console.log('edit', id);
   }
 
 }

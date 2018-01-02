@@ -17,21 +17,20 @@
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let defunt of defunts | filterDefunt : { nom:searchText.nom, prenom: searchText.prenom, dateDuDeces: searchText.dateDuDeces,dateDesFunerailles: searchText.dateDesFunerailles}">
+          <tr *ngFor="let defunt of defunts
+           | filterDefunt : { nom:searchText.nom, prenom: searchText.prenom, dateDuDeces: searchText.dateDuDeces,dateDesFunerailles: searchText.dateDesFunerailles}
+           | paginate: { itemsPerPage: 10, currentPage: p } ">
               <td>{{defunt.nom}}</td>
               <td>{{defunt.prenom}}</td>
               <td>{{defunt.dateDuDeces}}</td>
               <td>{{defunt.dateDesFunerailles}}</td>
               <td><i class="fa fa-times" aria-hidden="true" (click)="deleteDefunt(defunt._id)"></i></td>
-              <td><i class="fa fa-pencil" aria-hidden="true" (click)="editDefunt(defunt._id)" ></i></td>
+              <td><i class="fa fa-pencil" aria-hidden="true" routerLink="/modifierDefunt/{{defunt._id}}" ></i></td>
           </tr>
       </tbody>
   </table>
-  <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-</div>
+<pagination-controls
+  previousLabel="Précédent"
+  nextLabel="Suivant"
+  (pageChange)="p = $event">
+</pagination-controls>

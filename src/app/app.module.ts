@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { FilterDefuntPipe } from './filtre/filterDefunt.pipe';
 
@@ -14,7 +15,8 @@ import { ContactComponent } from './contact/contact.component';
 import { HorairesComponent } from './horaires/horaires.component';
 import { AjouterDefuntComponent } from './ajouter-defunt/ajouter-defunt.component';
 import { ListDefuntComponent } from './list-defunt/list-defunt.component';
-import { HttpService } from './service/http.service';
+import { DefuntService } from './service/defunt.service';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'accueil', pathMatch: 'full'},
@@ -22,7 +24,8 @@ const routes: Routes = [
   {path: 'horaires', component : HorairesComponent},
   {path: 'contact', component : ContactComponent},
   {path: 'ajouterDefunt', component : AjouterDefuntComponent },
-  {path: 'listeDefunt', component : ListDefuntComponent }
+  {path: 'listeDefunt', component : ListDefuntComponent },
+  {path: 'modifierDefunt/:id', component: AjouterDefuntComponent },
 ];
 
 @NgModule({
@@ -39,12 +42,14 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [HttpService],
+  exports: [ RouterModule ],
+  providers: [DefuntService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
