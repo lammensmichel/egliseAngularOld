@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 import { FilterDefuntPipe } from './filtre/filterDefunt.pipe';
 
@@ -46,6 +47,7 @@ const routes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    DateValueAccessorModule,
     RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule ],

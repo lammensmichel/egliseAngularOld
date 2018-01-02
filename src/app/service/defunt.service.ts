@@ -26,14 +26,11 @@ getHttpOne(url: string): Observable<Defunt> {
   .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 }
 postHttp(url: string, defun: Defunt ): Observable<Defunt> {
-  return  this.http.post(url, new RequestOptions({
-    body: defun
- }))
+  return  this.http.post(url, defun)
   .map((res: any) => res.json())
   .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 }
 putHttp(url: string, defunt: Defunt ): Observable<Defunt> {
-  console.log(defunt);
     return  this.http.put(url, defunt)
    .map((res: any) => res.json())
    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

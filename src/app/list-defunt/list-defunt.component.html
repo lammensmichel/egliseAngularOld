@@ -9,9 +9,11 @@
                 <input [(ngModel)]="searchText.prenom" type="text" class="form-control" placeholder="Prénom">
               </th>
               <th>
+                  <span >date Du Décès :</span>
                 <input  [(ngModel)]="searchText.dateDuDeces" type="date" class="form-control" placeholder="Date décès">
               </th>
               <th>
+                  <span>Date Des Funérailles:</span>
                   <input  [(ngModel)]="searchText.dateDesFunerailles" type="date" class="form-control" placeholder=" Date funérailles">
               </th>
           </tr>
@@ -22,8 +24,8 @@
            | paginate: { itemsPerPage: 10, currentPage: p } ">
               <td>{{defunt.nom}}</td>
               <td>{{defunt.prenom}}</td>
-              <td>{{defunt.dateDuDeces}}</td>
-              <td>{{defunt.dateDesFunerailles}}</td>
+              <td>{{defunt.dateDuDeces| date : 'dd/MM/yyyy'}}</td>
+              <td>{{defunt.dateDesFunerailles| date : 'dd/MM/yyyy'}}</td>
               <td><i class="fa fa-times" aria-hidden="true" (click)="deleteDefunt(defunt._id)"></i></td>
               <td><i class="fa fa-pencil" aria-hidden="true" routerLink="/modifierDefunt/{{defunt._id}}" ></i></td>
           </tr>
