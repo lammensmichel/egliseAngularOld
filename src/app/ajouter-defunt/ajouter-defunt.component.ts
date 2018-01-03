@@ -41,7 +41,7 @@ export class AjouterDefuntComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
-      this.defuntService.getHttpOne(`http://localhost:3000/Defunt/${this.id}`).subscribe((result: Defunt) => {
+      this.defuntService.getHttpOne(this.id).subscribe((result: Defunt) => {
         this.myForm = this.formBuilder.group({
           'prenom': result.prenom ? result.prenom : new FormControl(),
           'nom': result.nom ? result.nom : new FormControl(),
@@ -72,11 +72,11 @@ export class AjouterDefuntComponent implements OnInit {
     defunt.heureCimetiere = defunt.heureCimetiere ? moment(defunt.heureCimetiere, 'HH:mm').toDate() : null ;
     if (this.id) {
       defunt._id = this.id;
-      this.defuntService.postHttp('http://localhost:3000/Defunt', defunt).subscribe(
+      this.defuntService.postHttp(defunt).subscribe(
         (e) => {console.log(e); }
       );
     } else {
-      this.defuntService.putHttp('http://localhost:3000/Defunt', defunt).subscribe(
+      this.defuntService.putHttp(defunt).subscribe(
         (e) => {console.log(e); }
       );
     }

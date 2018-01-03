@@ -24,7 +24,7 @@ export class ListDefuntComponent implements OnInit {
 
 
   ngOnInit() {
-    this.defuntService.getHttp('http://localhost:3000/Defunt').subscribe((results) => {
+    this.defuntService.getHttp().subscribe((results) => {
       this.defunts = results;
     });
   }
@@ -37,7 +37,7 @@ export class ListDefuntComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
      if (result && result.id) {
         const defunt: Defunt = new Defunt(result.id) ;
-        this.defuntService.deleteHttp('http://localhost:3000/Defunt', defunt).subscribe((results) => {
+        this.defuntService.deleteHttp(defunt).subscribe((results) => {
           this.defunts = this.defunts.filter((e) => e._id !== id);
           console.log(results);
         });
