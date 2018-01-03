@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Defunt } from '../models/Defunt';
 import { DefuntSearch } from '../models/DefuntSearch';
 import { DefuntService } from '../service/defunt.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, DateAdapter } from '@angular/material';
 import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
 
@@ -17,7 +17,8 @@ export class ListDefuntComponent implements OnInit {
    searchText: DefuntSearch;
    p = 1;
 
-  constructor(private defuntService: DefuntService, public dialog: MatDialog) {
+  constructor(private defuntService: DefuntService, public dialog: MatDialog, private adapter: DateAdapter<any>) {
+     this.adapter.setLocale('fr');
      this.searchText = new DefuntSearch();
    }
 

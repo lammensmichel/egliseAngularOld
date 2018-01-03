@@ -3,18 +3,28 @@
       <thead>
           <tr>
               <th>
-                <input [(ngModel)]="searchText.nom" type="text" class="form-control" placeholder="Nom">
+                  <mat-form-field>
+                      <input [(ngModel)]="searchText.nom" matInput placeholder="Nom" type="text" class="form-control" placeholder="Nom">
+                  </mat-form-field>
               </th>
               <th>
-                <input [(ngModel)]="searchText.prenom" type="text" class="form-control" placeholder="Prénom">
+                <mat-form-field>
+                  <input [(ngModel)]="searchText.prenom" matInput placeholder="Prenom" type="text" class="form-control" placeholder="Prénom">
+                </mat-form-field>
               </th>
               <th>
-                  <span >date Du Décès :</span>
-                <input  [(ngModel)]="searchText.dateDuDeces" type="date" class="form-control" placeholder="Date décès">
+                <mat-form-field>
+                  <input matInput [(ngModel)]="searchText.dateDuDeces" [matDatepicker]="picker" placeholder="Date du décès :">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
               </th>
               <th>
-                  <span>Date Des Funérailles:</span>
-                  <input  [(ngModel)]="searchText.dateDesFunerailles" type="date" class="form-control" placeholder=" Date funérailles">
+                <mat-form-field>
+                  <input matInput [(ngModel)]="searchText.dateDesFunerailles" [matDatepicker]="picker2" placeholder="Date des funérailles :">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
               </th>
           </tr>
       </thead>

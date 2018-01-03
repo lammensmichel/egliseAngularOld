@@ -4,10 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule} from 'ngx-pagination';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatNativeDateModule,
+   MatDatepickerModule } from '@angular/material';
 import 'hammerjs';
 
 import { FilterDefuntPipe } from './filtre/filterDefunt.pipe';
@@ -58,12 +59,17 @@ const routes: Routes = [
     DateValueAccessorModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatCheckboxModule,
     RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule ],
-  providers: [DefuntService],
+  providers: [
+    DefuntService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
