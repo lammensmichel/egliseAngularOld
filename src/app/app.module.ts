@@ -6,6 +6,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import 'hammerjs';
 
 import { FilterDefuntPipe } from './filtre/filterDefunt.pipe';
 
@@ -17,6 +20,7 @@ import { HorairesComponent } from './horaires/horaires.component';
 import { AjouterDefuntComponent } from './ajouter-defunt/ajouter-defunt.component';
 import { ListDefuntComponent } from './list-defunt/list-defunt.component';
 import { DefuntService } from './service/defunt.service';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 
 const routes: Routes = [
@@ -39,7 +43,11 @@ const routes: Routes = [
     HorairesComponent,
     AjouterDefuntComponent,
     ListDefuntComponent,
-    FilterDefuntPipe
+    FilterDefuntPipe,
+    DialogDeleteComponent
+  ],
+  entryComponents: [
+    DialogDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +56,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     DateValueAccessorModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatCheckboxModule,
     RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule ],
