@@ -3,12 +3,14 @@
   <div class="form-group col-md-12">
     <div class="row">
       <div class="col-lg-6">
-        <label for="prenom">Prénom</label>
-        <input type="texte" class="form-control" id="prenom" placeholder="prénom" formControlName="prenom">
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Prénom" type="text" class="form-control" placeholder="Prénom" formControlName="prenom">
+        </mat-form-field>
       </div>
       <div class="col-lg-6">
-        <label for="inputEmail4">Nom</label>
-        <input type="texte" class="form-control" id="nom" placeholder="nom" formControlName="nom">
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Nom" type="text" class="form-control" placeholder="Nom" formControlName="nom">
+        </mat-form-field>
       </div>
     </div>
   </div>
@@ -16,8 +18,9 @@
   <div class="form-group col-md-12">
     <div class="row">
       <div class="col-lg-12">
-        <label for="epouxEpouse">époux / épouse</label>
-        <input type="texte" class="form-control" id="epouxEpouse" placeholder="époux / épouse" formControlName="epouxEpouse">
+          <mat-form-field class="full-width">
+              <input  matInput placeholder="époux / épouse" type="text" class="form-control" placeholder="époux / épouse" formControlName="epouxEpouse">
+          </mat-form-field>
       </div>
     </div>
   </div>
@@ -25,35 +28,16 @@
   <div class="form-group col-md-12">
     <div class="row">
       <div class="col-lg-6">
-        <label for="dateDuDeces">Date Du Décès</label>
-        <input type="date" class="form-control" id="dateDuDeces" placeholder="date Du Décès" formControlName="dateDuDeces" useValueAsDate>
+        <mat-form-field class="full-width">
+            <input matInput  [matDatepicker]="dateDuDeces" placeholder="Date du décès :" formControlName="dateDuDeces" >
+            <mat-datepicker-toggle matSuffix [for]="dateDuDeces"></mat-datepicker-toggle>
+            <mat-datepicker #dateDuDeces></mat-datepicker>
+        </mat-form-field>
       </div>
       <div class="col-lg-6">
-        <label for="lieuDuDeces">Lieu Du Décès</label>
-        <input type="texte" class="form-control" id="lieuDuDeces" placeholder="lieu Du Décès" formControlName="lieuDuDeces">
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group col-md-12">
-    <div class="row">
-      <div class="col-lg-6">
-        <label for="dateDeNaissance">Date De Naissance</label>
-        <input type="date" class="form-control" id="dateDeNaissance" placeholder="Date De Naissance" formControlName="dateDeNaissance" useValueAsDate>
-      </div>
-      <div class="col-lg-6">
-        <label for="LieuDeNaissance">Lieu De Naissance</label>
-        <input type="texte" class="form-control" id="LieuDeNaissance" placeholder="Lieu De Naissance" formControlName="lieuDeNaissance">
-      </div>
-    </div>
-  </div>
-
-
-  <div class="form-group col-md-12">
-    <div class="row">
-      <div class="col-lg-6">
-        <label for="dateDesFunerailles">Date Des Funérailles</label>
-        <input type="date" class="form-control"  id="dateDesFunerailles"  placeholder="Date Des Funérailles" formControlName="dateDesFunerailles"  useValueAsDate>
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Lieu Du Décès" type="text" class="form-control" placeholder="Lieu Du Décès" formControlName="lieuDuDeces">
+        </mat-form-field>
       </div>
     </div>
   </div>
@@ -61,12 +45,29 @@
   <div class="form-group col-md-12">
     <div class="row">
       <div class="col-lg-6">
-        <label for="lieuDeDepart">Lieu De Départ</label>
-        <input type="texte" class="form-control" id="lieuDeDepart" placeholder="lieu De Dépar" formControlName="lieuDeDepart">
+        <mat-form-field class="full-width">
+            <input matInput  [matDatepicker]="dateDeNaissance" placeholder="Date De Naissance" formControlName="dateDeNaissance" >
+            <mat-datepicker-toggle matSuffix [for]="dateDeNaissance"></mat-datepicker-toggle>
+            <mat-datepicker #dateDeNaissance></mat-datepicker>
+        </mat-form-field>
       </div>
       <div class="col-lg-6">
-        <label for="heureDeDepart">heure De Départ</label>
-        <input type="time" class="form-control" id="heureDeDepart" placeholder="Deure De Départ" formControlName="heureDeDepart" useValueAsDate>
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Lieu De Naissance" type="text" class="form-control" placeholder="Lieu De Naissance" formControlName="lieuDeNaissance">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-form-field class="full-width">
+            <input matInput  [matDatepicker]="dateDesFunerailles" placeholder="Date Des Funérailles" formControlName="dateDesFunerailles" >
+            <mat-datepicker-toggle matSuffix [for]="dateDesFunerailles"></mat-datepicker-toggle>
+            <mat-datepicker #dateDesFunerailles></mat-datepicker>
+        </mat-form-field>
       </div>
     </div>
   </div>
@@ -74,25 +75,14 @@
   <div class="form-group col-md-12">
     <div class="row">
       <div class="col-lg-6">
-        <label for="egliseDe">Eglise</label>
-        <input type="texte" class="form-control" id="egliseDe" placeholder="Eglise" formControlName="egliseDe">
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Lieu De Départ" type="text" class="form-control" placeholder="Lieu De Départ" formControlName="lieuDeDepart">
+        </mat-form-field>
       </div>
       <div class="col-lg-6">
-        <label for="heureDeLaMesse">Heure de la messe</label>
-        <input type="time" class="form-control" id="heureDeLaMesse" placeholder="Heure de la messe" formControlName="heureDeLaMesse" useValueAsDate>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group col-md-12">
-    <div class="row">
-      <div class="col-lg-6">
-        <label for="crematorium">Crématorium</label>
-        <input type="texte" class="form-control" id="crematorium" placeholder="Crématorium" formControlName="crematorium">
-      </div>
-      <div class="col-lg-6">
-        <label for="heureCrematorium">Heure du Crématorium</label>
-        <input type="time" class="form-control" id="heureCrematorium" placeholder="Heure du Crématorium" formControlName="heureCrematorium" useValueAsDate>
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Heure De Départ" type="time" class="form-control" placeholder="Heure De Départ" formControlName="heureDeDepart" useValueAsDate>
+        </mat-form-field>
       </div>
     </div>
   </div>
@@ -100,12 +90,56 @@
   <div class="form-group col-md-12">
     <div class="row">
       <div class="col-lg-6">
-        <label for="cimetiere">Cimetière</label>
-        <input type="texte" class="form-control" id="cimetiere" placeholder="Cimetière" formControlName="cimetiere">
+        <mat-form-field class="full-width">
+            <mat-select placeholder="église" formControlName="egliseDe">
+              <mat-option *ngFor="let eglise of eglises" [value]="eglise._id">
+                {{ eglise.titre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
       </div>
       <div class="col-lg-6">
-        <label for="heureCimetiere">Heure du Cimetière</label>
-        <input type="time" class="form-control" id="heureCimetiere" placeholder="Heure du Cimetière" formControlName="heureCimetiere" useValueAsDate>
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Heure de la messe" type="time" class="form-control" placeholder="Heure de la messe" formControlName="heureDeLaMesse" useValueAsDate>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-form-field class="full-width">
+            <mat-select placeholder="Crématorium" formControlName="crematorium">
+              <mat-option *ngFor="let crematorium of crematoriums" [value]="crematorium._id">
+                {{ crematorium.titre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Heure du Crématorium" type="time" class="form-control" placeholder="Heure du Crématorium" formControlName="heureCrematorium" useValueAsDate>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-form-field class="full-width">
+            <mat-select placeholder="Cimetière" formControlName="cimetiere">
+              <mat-option *ngFor="let cimetiere of cimetieres" [value]="cimetiere._id">
+                {{ cimetiere.titre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field class="full-width">
+            <input  matInput placeholder="Heure du Cimetière" type="time" class="form-control" placeholder="Heure du Cimetière" formControlName="heureCimetiere" useValueAsDate>
+        </mat-form-field>
       </div>
     </div>
   </div>

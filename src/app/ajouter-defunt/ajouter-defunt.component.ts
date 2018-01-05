@@ -4,6 +4,9 @@ import { Defunt } from '../models/Defunt';
 import { DefuntService } from '../service/defunt.service';
 import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { LieuService } from '../service/lieu.service';
+import { Lieu } from '../models/Lieu';
+import { DateAdapter } from '@angular/material';
 
 @Component({
   selector: 'app-ajouter-defunt',
@@ -13,9 +16,17 @@ import * as moment from 'moment';
 export class AjouterDefuntComponent implements OnInit {
 
   myForm: FormGroup;
+  eglises: Array<Lieu> = [];
+  crematoriums: Array<Lieu> = [];
+  cimetieres: Array<Lieu> = [];
   id: string ;
 
-  constructor(private formBuilder: FormBuilder, private defuntService: DefuntService, private route: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder,
+              private defuntService: DefuntService,
+              private lieuService: LieuService,
+              private adapter: DateAdapter<any>,
+              private route: ActivatedRoute) {
+    this.adapter.setLocale('fr');
     this.myForm = formBuilder.group(
       {
         'prenom': new FormControl(),
@@ -63,6 +74,11 @@ export class AjouterDefuntComponent implements OnInit {
         });
       });
     }
+    this.lieuService.getHttp().subscribe((lieux: Array<Lieu>) => {
+      this.cimetieres = lieux.filter( (e) => e.typeLieu === 'cimetiere' );
+      this.crematoriums = lieux.filter( (e) => e.typeLieu === 'crematorium' );
+      this.eglises = lieux.filter( (e) => e.typeLieu === 'eglise' );
+    });
   }
 
   onSubmit(defunt: Defunt) {

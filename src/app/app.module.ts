@@ -7,8 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatDialogModule, MatInputModule, MatNativeDateModule,
-   MatDatepickerModule } from '@angular/material';
+import { MatButtonModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatInputModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatFormFieldModule} from '@angular/material';
 import 'hammerjs';
 
 import { FilterDefuntPipe } from './filtre/filterDefunt.pipe';
@@ -21,6 +27,7 @@ import { HorairesComponent } from './horaires/horaires.component';
 import { AjouterDefuntComponent } from './ajouter-defunt/ajouter-defunt.component';
 import { ListDefuntComponent } from './list-defunt/list-defunt.component';
 import { DefuntService } from './service/defunt.service';
+import { LieuService } from './service/lieu.service';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 
@@ -51,7 +58,7 @@ const routes: Routes = [
     DialogDeleteComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     NgxPaginationModule,
     HttpModule,
     FormsModule,
@@ -64,11 +71,14 @@ const routes: Routes = [
     MatNativeDateModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatFormFieldModule,
+    MatSelectModule,
     RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule ],
   providers: [
-    DefuntService
+    DefuntService,
+    LieuService
   ],
   bootstrap: [AppComponent]
 })

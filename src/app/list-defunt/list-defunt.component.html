@@ -3,24 +3,24 @@
       <thead>
           <tr>
               <th>
-                  <mat-form-field>
+                  <mat-form-field class="full-width">
                       <input [(ngModel)]="searchText.nom" matInput placeholder="Nom" type="text" class="form-control" placeholder="Nom">
                   </mat-form-field>
               </th>
               <th>
-                <mat-form-field>
+                <mat-form-field class="full-width">
                   <input [(ngModel)]="searchText.prenom" matInput placeholder="Prenom" type="text" class="form-control" placeholder="Prénom">
                 </mat-form-field>
               </th>
               <th>
-                <mat-form-field>
+                <mat-form-field class="full-width">
                   <input matInput [(ngModel)]="searchText.dateDuDeces" [matDatepicker]="picker" placeholder="Date du décès :">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </th>
               <th>
-                <mat-form-field>
+                <mat-form-field class="full-width">
                   <input matInput [(ngModel)]="searchText.dateDesFunerailles" [matDatepicker]="picker2" placeholder="Date des funérailles :">
                   <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                   <mat-datepicker #picker2></mat-datepicker>
